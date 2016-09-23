@@ -140,7 +140,7 @@ PLATFORMS
 DEPENDENCIES
   execjs
   github-pages
-  minima
+  jekyll-github-metadata
   therubyracer
 
 RUBY VERSION
