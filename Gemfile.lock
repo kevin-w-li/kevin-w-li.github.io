@@ -141,6 +141,7 @@ DEPENDENCIES
   execjs
   github-pages
   jekyll-github-metadata
+  minima
   therubyracer
 
 RUBY VERSION
