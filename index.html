@@ -1,0 +1,23 @@
+---
+layout: page
+---
+
+<div class="home">
+  <h1 class="page-heading"> About me</h1>
+  <p>My name is Kevin Li (李文亮), a second-year PhD student at <a href = http://www.gatsby.ucl.ac.uk/>Gatsby Computational Neurosicence Unit </a>of University of London. I work with Peter Dayan and Maneesh Sahani on different projects. I did my undergraduate and Master's at University of Cambridge with my Master's project supervised by <a href = http://www3.eng.cam.ac.uk/~ml468/)>Máté Lengyel</a>. In also took the Cambridge-MIT Exchange program in 2012-2013. </p>
+</div>
+<div class="home">
+<h1 class="page-heading">Posts</h1> 
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+</div>
