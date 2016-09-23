@@ -1,7 +1,10 @@
 ---
 layout: post
-title:  "Meow!"
+title:  "This is my first webpage"
 date:   2016-09-22 23:06:51 +0100
 categories: jekyll update
 ---
-Meaw
+
+Ok, maybe not so impressive, but this is my first personal webpage on a public domain. Jekyll is generally nice. I basically downloaded some scripts and ended up figuring why the style sheet does not load on Github Pages. Just a single variable that is misassigned. 
+
+Thanks to my fellow PhD student [Wittawat Jitkrittumu](http://wittawat.com/) who recommended Jekyll to me, which resulted in completion of this site within 24-hours.
