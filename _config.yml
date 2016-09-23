@@ -26,4 +26,4 @@ sass:
   sass_dir: _sass
 include: ['_pages']
 markdown: kramdown
-theme: minima
+# theme: minima
