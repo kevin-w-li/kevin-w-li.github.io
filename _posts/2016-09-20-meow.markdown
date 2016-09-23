@@ -5,6 +5,6 @@ date:   2016-09-22 23:06:51 +0100
 categories: jekyll update
 ---
 
-Ok, maybe not so impressive, but this is my first personal webpage on a public domain. Jekyll is generally nice. I basically downloaded some scripts and ended up figuring why the style sheet does not load on Github Pages. Just a single variable that is misassigned. 
+Ok, maybe not so impressive, but this is my first personal webpage on a public domain. Jekyll is generally nice. I basically downloaded some scripts and ended up figuring spending half a day on why the style sheet was not load on Github Pages. Turns out that it was just a single variable misassigned. 
 
 Thanks to my fellow PhD student [Wittawat Jitkrittumu](http://wittawat.com/) who recommended Jekyll to me, which resulted in completion of this site within 24-hours.
