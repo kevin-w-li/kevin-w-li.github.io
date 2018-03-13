@@ -4,7 +4,7 @@ title: Publications
 ---
 
 ### 2018
-* Li Wenliang and Maneesh Sahani, *Neural network trained with supervision represents uncertainty by nonlinear moments*, COSYNE Abstracts 2018, Denver, CO, USA. [pdf]({{ "/assets/cosyne_2018.pdf" | absolute_url }})
+* Li Wenliang and Maneesh Sahani, *Neural network trained with supervision represents uncertainty by nonlinear moments*, COSYNE Abstracts 2018, Denver, CO, USA. [[pdf]({{ "/assets/cosyne_2018.pdf" | absolute_url }})]
 
 
 ### 2015
