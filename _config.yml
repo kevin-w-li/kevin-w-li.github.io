@@ -26,6 +26,6 @@ github_username:  kevin-w-li
 sass:
   sass_dir: _sass
 include: ['_pages']
-gems: ['jekyll-github-metadata']
+plugins: ['jekyll-github-metadata']
 markdown: kramdown
 theme: minima
