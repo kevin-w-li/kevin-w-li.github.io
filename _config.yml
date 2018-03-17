@@ -21,7 +21,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: ""
 #url: "http://localhost:4000"
 github_username:  kevin-w-li
-google_analytics: UA-NNNNNNNN-N
+google_analytics: UA-115894629-1
 
 # Build settings
 sass:
