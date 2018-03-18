@@ -1,0 +1,34 @@
+---
+layout: post
+title:  "Representation of distributions in the brain"
+date:   2018-03-18 01:06:51 +0000
+categories: research
+---
+
+Recently I have been working on how the brain performs probabilistic inference under noisy observations. 
+
+There are many examples demonstrating how powerful the brain is in performing statistical computations. For example, when you meet a person speaking with a particular accent, you may begin to guess in your mind that where this person is from. You may combine different sources of information apart from the accent, such as his look and even personality. This inference can be viewed as a form of cue coombination, and a more classical example is the task that asks a subject to infer the location of an event (such as a flash-bang) based on a visual and an auditory cue. A good performance on this taks can be crucial. For instance, when driving along a busy street and observing trajectories of pedestrian movements, the driver needs to made decisions of when to accelerate or brake to get to the destination fast without hitting anyone! 
+
+Experiments have shown that subjects make decisions in a way that optimally weight the evidence provided by the different cues (accent or flash), and the weighting depends on how well they believe each cue informs about the underlying quantity of interest (home of the person or location of the flashbang). We know that, to be able to make decisions consistent with beliefs, one must perform some sort of (potentially approximate) computations using the distributions involved. The fact that humans and animals are capable of performing various **inferences** as if they are manipulating the probability distributions is an amazing feat, as the distribution has to be first **represented** by the neurons, and they have to figure out a way to produce an encoded output distribution. What's more impressive is that we are also able to adapt to new tasks very quickly, even if new tasks involve novel types of stimuli, which indicates that we are also capable of **learning** new problems very quickly. How might the brain achieve with this?
+
+There has been many popular hypothese. An early proposal is known as [*probabilistic population code (PPC)*](ppc), which, in the earliest version, uses the fact that the neurons respond to stimulus in a noisy way and is thus capable of encoding uncertainty in the stimulus. However, this is certainly not true as the noisy nature of the stimuli does not have anything to do with uncertainty in the outside world. Although one can decode from noisy neural activities into a noisy stimulus, the causal direction does not seem plausible. In later version of PPC, the encoded distribution is asumed to come from an exponential family, which includes many well-known distributions including Gaussian, Gamma and Poisson. The parameters of these distributions (such as means and variances) are assumed to be encoded by a neural population. However, it seems this framework is only capable of dealing with simple distributions such as Gaussians.
+
+There are also other variants:
+
+1. [*Kernel density estimation (KDE)*](kde): neurons form a set of basis functions, and their activities encode the coefficients of the basis functions so that they sum together to approximate the encoded probability density functions. 
+2. [*Neural engineering framework (NEF)*](nef): kneural populations are used as a set of basis functions to approximate any computations required, such as Kalman filtering for a linear Gaussian state space model. 
+3. [*Sampling*](samp): the variability of neuronal responses can be seen as a dynamical process that draws samples from the encoded distribution. This framework is perhaps the best biologically supported one so far.
+
+The framework I have been working recently is called *distributed distributional coding (DDC)*, which assumes that, as in KDE, neurons form a set of basis functions, but instead of linearly encode the density, their mean firing rate indicates an expectation of the basis functions under of the encoded distribution. If the encoded distribution is in the exponential family, then these neurons essentially define the **mean parametrs**. 
+
+There are many advantages of this framework. 
+1. Exponential family distributions can be very rich given a rich set of basis functions.
+2. Computation can be very easy given these mean firing rates as the mean parameters of distributions. The main ideas came from the kernel literature, and these expectations are expectation of finite dimensional features, see this [review](https://www.cc.gatech.edu/~lsong/papers/SmoGreSonSch07.pdf).
+3. Learning is also easy given training data: each neurons is representing a mean, which is what supervision is good at. This is not the case in many other hypotheses where neurons have to explicitly implement mathematical equations derived for specific problems. Even if there is no closed-form analytical solutions, DDC can find an approximate solution using a rich set of basis functions, as long as there is enough training data.
+
+For details, please see the first two columns of my recent [COSYNE poster]({{ "/pubs/cosyne_2018.pdf" | absolute_url }}).
+
+[ppc]: https://www.nature.com/articles/nn1790
+[kde]: http://compneuro.uwaterloo.ca/research/nef.html
+[nef]: http://compneuro.uwaterloo.ca/research/nef.html
+[samp]:http://science.sciencemag.org/content/331/6013/83
