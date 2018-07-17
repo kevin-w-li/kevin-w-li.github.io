@@ -4,7 +4,7 @@ title: Publications
 ---
 
 ### 2018
-* Li Wenliang and Aaron Seitz, *Deep neural network for modeling visual perceptual learning*, in reivew. [[pdf]({{ "/pubs/lisei2018_ms.pdf" | absolute_url }})] [[supp]({{ "/pubs/lisei2018_ed.pdf" | absolute_url }})]
+* Li Wenliang and Aaron Seitz, *Deep neural network for modeling visual perceptual learning*, Journal of Neuroscience. [link](http://www.jneurosci.org/content/38/27/6028) [[pre-print]({{ "/pubs/lisei2018_ms.pdf" | absolute_url }})] [[supp]({{ "/pubs/lisei2018_ed.pdf" | absolute_url }})] [code](https://github.com/kevin-w-li/DNN_for_VPL)
 * Li Wenliang and Maneesh Sahani, *Neural network trained with supervision represents uncertainty by nonlinear moments*, COSYNE Abstracts 2018, Denver, CO, USA. [[pdf]({{ "/pubs/cosyne_2018.pdf" | absolute_url }})]
 
 
