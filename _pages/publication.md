@@ -4,6 +4,7 @@ title: Publications
 ---
 
 ### 2018
+* Li K. Wenliang*, Dougal Sutherland*, Heiko Strathmann, Arthur Gretton, *Learning deep kernels for exponential family densities* [[arxiv]](https://arxiv.org/abs/1811.08357)
 * Li K. Wenliang and Aaron R. Seitz, *Deep neural network for modeling visual perceptual learning*, Journal of Neuroscience. [[link](http://www.jneurosci.org/content/38/27/6028)] [[pre-print]({{ "/pubs/lisei2018_ms.pdf" | absolute_url }})]  [[code](https://github.com/kevin-w-li/DNN_for_VPL)]
 * Li Wenliang and Maneesh Sahani, *Neural network trained with supervision represents uncertainty by nonlinear moments*, COSYNE Abstracts 2018, Denver, CO, USA. [[pdf]({{ "/pubs/cosyne_2018.pdf" | absolute_url }})]
 
