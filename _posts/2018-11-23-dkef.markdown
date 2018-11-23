@@ -11,6 +11,14 @@ The authors are me\*,
 [Heiko Strathmann](http://herrstrathmann.de/) and 
 [Arthur Gretton](http://www.gatsby.ucl.ac.uk/~gretton/)
 
+
+## TL;DR
+
+1. We extended kernel exponential family distributions by using a deep kernel (kernel on top of network features).
+1. The kernel is trained using a cross-valiation like two-stage training procedure.
+1. The trained kernel is location-variant and adapts to local geometry
+1. We find that DKEF is able to capture the *shape* of distributions well.
+
 ## Introduction
 
 The goal is to fit a (non-)parametric distribution to observed data $\{x\}$ drawn from unknown distribution $p_0(x)$
@@ -29,7 +37,7 @@ The sample-version score matching loss is
 
 \begin{equation}
 \label{eq:score}
-J(\theta) = \sum_i\sum_d\partial^2\log p_\theta(x_d^{(i)}) + \frac{1}{2}(\partial_d\log p_\theta(x_d^{(i)}))^2
+J(\theta) = \sum_i\sum_d\partial_d^2\log p_\theta(x_i) + \frac{1}{2}(\partial_d\log p_\theta(x_i))^2
 \end{equation}
 The advantage for using score matching is that we can ignore the normalizer when optimizing the natural parameters.
 
@@ -100,7 +108,7 @@ log likelihood and Fisher divergence. The results are in Figure 2 of the [paper]
 our model is able to fit the general *shape* of the distributions much better than likelihood based methods. On real datasets,
 we compared models using finite-set Stein discrepency (Jitkrittum 2018), which uses the gradient of the models evaluated at 
 a set of random points. We found the similar conclusion that, while our model performs favorably on gradient-based methods, the 
-normalizing-flows are better in terms of likelihoods, especially for larger datasets. 
+normalizing-flows are better in terms of likelihoods, especially for larger datasets (Figure 3 in [paper](DKEF)). 
 
 ## Other contributions
 
@@ -123,12 +131,6 @@ would be to first discover these disjoint subsets of the data by clustering and 
 Since the problem only occurs on *disjoint* supports, clustering algorithms should have little difficulty
 in finding these different supports. We illustrate the effectiveness of this workaroud in the rightmost 
 column of Figure 2 in our [paper](DKEF).
-
-## Conclusion
-
-1. We extended previous approach of kernel exponential family distributions using a deep kernel (kernel on top of network features).
-1. The kernel is trained using a cross-valiation like two-stage training procedure.
-1. We find that DKEF is able to capture the *shape* of distributions well.
 
 
 [DKEF]: https://arxiv.org/abs/1811.08357https://arxiv.org/abs/1811.08357
