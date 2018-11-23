@@ -6,6 +6,10 @@ categories: research
 ---
 
 In our new [paper](DKEF), we tackle the problem of density estimation using an exponential family distribution with rich structure.
+The authors are me\*, 
+[Dougal Sutherland](http://www.gatsby.ucl.ac.uk/~dougals/)\*, 
+[Heiko Strathmann](http://herrstrathmann.de/) and 
+[Arthur Gretton](http://www.gatsby.ucl.ac.uk/~gretton/)
 
 ## Introduction
 
@@ -18,7 +22,7 @@ $$
 
 Common distributions (Gaussian, Gamma, etc.) can usually be written in this form. Learning such a distribution using 
 maximum likelihood (K-L loss) is challenging as one would need to compute the normalizer $Z$. However, an alternative loss
-other than the likelihood is the [score matching (SM, Hyv\"arinen 2005)](sm) loss, which differs from the Fisher divergence
+other than the likelihood is the [score matching (Hyv\"arinen 2005)](sm) loss, which differs from the Fisher divergence
 by a constant that depends only on the data distribution. If the data were 1-D, the sample-version score matching loss is 
 
 \begin{equation}
@@ -26,7 +30,7 @@ by a constant that depends only on the data distribution. If the data were 1-D, 
 J(\theta) = \sum_i\partial^2\log p_\theta(x_i) + \frac{1}{2}(\partial\log p_\theta(x_i))^2
 \end{equation}
 
-The advantage for using SM is that we can ignore the normalizer when optimizing the natural parameters.
+The advantage for using score matching is that we can ignore the normalizer when optimizing the natural parameters.
 
 In our work, we take $\theta \cdot T(x) = f(x) = \langle f, k(x,\cdot) \rangle_{\mathcal{H}}$ 
 where $f$ is a function in the reproducing kernel Hubert space $\mathcal{H}$ with kernel $k$, 
@@ -35,16 +39,16 @@ term inside the $\exp$ using a flexible function.
 
 Previous work in our group by Strathmann et al. (2015)
 and Sutherland (2018) showed promising results of using SM to optimize a kernel exponentail family distribution, 
-both experimentally and theoretically. In those papers, the kernel is usualy common translation-invariant kernels.
+both experimentally and theoretically. In those papers, the kernel is usualy a translation-invariant Gaussian kernel.
 In order to extend this approach to fit on realistic and more complex
-distributions, the kernel needs to have much better representatioanl power and adapt to 
+distributions, the kernel needs to adapt to 
 the shapes at different parts of data location. We show in Figure 1 of our [paper](DKEF) that 
 if the kernel has only one length-scale, even a simple mixture of a narrow and a broad Gaussians can be challenging, 
 whereas a location-variant kernel is able to capture the two scales and gives a much better fit.
 
 ## Deep kernel exponential family (DKEF)
 
-In our work, we parameterise the kernel with a deep neural network $\phi_w$ on top a Gaussian kernel
+In our work, we parameterize the kernel with a deep neural network $\phi_w$ on top a Gaussian kernel
 
 $$
 k(x,y)=\exp(-\frac{1}{2\sigma}\|\phi_w(x) - \phi_w(y)\|^2)
@@ -78,7 +82,7 @@ The optimal parameter is then found by choosing the
 $sigma$ that yeilds the minimum validation loss. 
 
 In the above procedure, one can think of $alpha$ as not being a 
-paramter, but rather a function $\alpha(\sigma, \mathcak{D}_1)$ that is inserted into the model definition to
+paramter, but rather a function $\alpha(\sigma, \mathcal{D}_1)$ that is inserted into the model definition to
 compute the validation loss on $\mathcal{D}_2$. What we really care is then just the validation loss and we'd like to minimize it w.r.t.
 $\sigma$, which can be done using gradient descent facilitated by automatic differentation 
 through the closed-form solution of $\alpha$. Extending this approach to our model, we optimize not just $\sigma$ but 
