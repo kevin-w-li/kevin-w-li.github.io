@@ -137,9 +137,9 @@ column of Figure 2 in our [paper](DKEF).
 
 ## Related work
 * Strathmann, H., D. Sejdinovic, S. Livingstone, Z. Szabó, and A. Gretton (2015). 
+*Gradient-free Hamiltonian Monte Carlo with efficient kernel exponential families.* In: NIPS. arXiv: 1506.02564.
 * Sriperumbudur, B., K. Fukumizu, A. Gretton, A.
 Hyvärinen, and R. Kumar (2017). *Density estimation in infinite dimensional exponential families.* In: JMLR 18.1, pp. 1830–1888. arXiv: 1312.3516
-*Gradient-free Hamiltonian Monte Carlo with efficient kernel exponential families.* In: NIPS. arXiv: 1506.02564.
 * Sutherland, D. J., H. Strathmann, M. Arbel, and A. Gretton (2018). 
 *Efficient and principled score estimation with Nystr¨om kernel exponential families.* In: AISTATS. arXiv: 1705.08360
 * Arbel, M. and A. Gretton (2018). *Kernel Conditional Exponential Family.* In: AISTATS. arXiv: 1711.05363
