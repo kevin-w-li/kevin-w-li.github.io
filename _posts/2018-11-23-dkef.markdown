@@ -17,7 +17,7 @@ The goal is to fit a (non-)parametric distribution to observed data $\{x\}$ draw
 We know that an exponentialy family distribution can be written in the following form.
 
 $$
-p(x)=\frac{1}{Z(\theta)}\exp(\theta \cdot T(x))q_0(x)
+p_\theta(x)=\frac{1}{Z(\theta)}\exp[\theta \cdot T(x)]q_0(x)
 $$
 
 Common distributions (Gaussian, Gamma, etc.) can usually be written in this form. Learning such a distribution using 
@@ -57,7 +57,7 @@ $$
 or a mixture of such deep kernels above. We model the energy function as weighted sum of kernels centered at a set of inducing 
 points $z$. 
 
-$$f(x)=\sum_i\alpha_i k(x,z_i)$$
+$$f(x)=\sum_m\alpha_m k(x,z_m)$$
 
 The network $\phi(x)$ is fully connected with softplus nonlinearity. Using softplus ensures
 * the energy is twice-differentiable.
@@ -75,20 +75,20 @@ enhances the quality of the fit, motivated by cross-validation. Consider
 a simplified scenario where we just use a simple Gaussian kernel with bandwidth $\sigma$ as our $k$, 
 so no deep networks, to minimize some loss (regression, classification, score maching, etc.). 
 To find the optimal $\sigma$ (and any additional regularizers $\lambda$), one would first split the data
-into two sets $mathcal{D}_1$ and $\mathcal{D}_2$, use the closed-form
+into two sets $\mathcal{D}_1$ and $\mathcal{D}_2$, use the closed-form
 solution of the corresponding loss to find the linear coefficients $\alpha$ using a set of (training) data $\mathcal{D}_1$, 
-and then test the performance of the $alpha$ on another set of (validation) data $\mathcal{D}_2$. 
+and then test the performance of the $\alpha$ on another set of (validation) data $\mathcal{D}_2$. 
 The optimal parameter is then found by choosing the 
 $sigma$ that yeilds the minimum validation loss. 
 
-In the above procedure, one can think of $alpha$ as not being a 
+In the above procedure, one can think of $\alpha$ as not being a 
 paramter, but rather a function $\alpha(\sigma, \mathcal{D}_1)$ that is inserted into the model definition to
 compute the validation loss on $\mathcal{D}_2$. What we really care is then just the validation loss and we'd like to minimize it w.r.t.
 $\sigma$, which can be done using gradient descent facilitated by automatic differentation 
 through the closed-form solution of $\alpha$. Extending this approach to our model, we optimize not just $\sigma$ but 
 also $w$ and $z$ (and regularizers that we avoid here$) using the split-training procedure.
 
-It is worth noting that this is only possible given that we have closed-form solution of $alpha$.
+It is worth noting that this is only possible given that we have closed-form solution of $\alpha$.
 
 ## Experiments and evaluation
 
