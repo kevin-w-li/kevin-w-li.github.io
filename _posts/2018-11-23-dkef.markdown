@@ -22,7 +22,7 @@ $$
 
 Common distributions (Gaussian, Gamma, etc.) can usually be written in this form. Learning such a distribution using 
 maximum likelihood (K-L loss) is challenging as one would need to compute the normalizer $Z$. However, an alternative loss
-other than the likelihood is the [score matching (Hyv\"arinen 2005)](sm) loss, which differs from the Fisher divergence
+other than the likelihood is the [score matching (Hyv\"{a}rinen 2005)](sm) loss, which differs from the Fisher divergence
 by a constant that depends only on the data distribution. If the data were 1-D, the sample-version score matching loss is 
 
 \begin{equation}
