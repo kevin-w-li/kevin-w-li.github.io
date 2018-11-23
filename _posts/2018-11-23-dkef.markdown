@@ -5,10 +5,16 @@ date:   2018-11-23 13:55:51 +0000
 categories: research
 ---
 
-Our new [paper](DKEF). 
+In our new [paper](DKEF), we tackle the problem of density estimation using an exponential family distribution with rich structure.
+We know that an exponentialy family distribution can be written in the following form.
 
 $$
-p(x)
+p(x)\approx \exp(\theta \cdot T(x))q_0(x)
 $$
+
+Common distributions (Gaussian, Gamma, etc.) can usually be written in this form. In our work, we take $\theta \cdot T(x) = f(x) = \langle f, k(x,\cdot) \rangle$ where $f$ is a function in the reproducing kernel Hubert space with kernel $k$, 
+giving [kernel exponential family](kef).
+
 
 [DKEF]: https://arxiv.org/abs/1811.08357https://arxiv.org/abs/1811.08357
+[kef]:  http://jmlr.org/papers/v18/16-011.html
