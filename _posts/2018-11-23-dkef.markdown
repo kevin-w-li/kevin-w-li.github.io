@@ -14,25 +14,34 @@ The authors are me\*,
 
 ## TL;DR
 
-1. We extended kernel exponential family distributions by using a deep kernel (kernel on top of network features).
-1. The kernel is trained using a cross-valiation like two-stage training procedure.
-1. The trained kernel is location-variant and adapts to local geometry
+1. We extended the kernel exponential family distributions using a deep kernel (kernel on top of network features);
+1. The deep kernel is trained by a cross-valiation like two-stage training procedure;
+1. The trained kernel is location-variant and adapts to local geometry of data;
 1. We find that DKEF is able to capture the *shape* of distributions well.
 
 ## Introduction
 
-The goal is to fit a (non-)parametric distribution to observed data $\{x\}$ drawn from unknown distribution $p_0(x)$
+The goal is to fit a (non-)parametric distribution to observed data $\{x\}$ drawn from unknown distribution $p_0(x)$.
 We know that an exponentialy family distribution can be written in the following form.
 
 $$
 p_\theta(x)=\frac{1}{Z(\theta)}\exp[\theta \cdot T(x)]q_0(x)
 $$
 
-Common distributions (Gaussian, Gamma, etc.) can usually be written in this form. Learning such a distribution using 
+Many well known distributions (Gaussian, Gamma, etc.) can usually be written in this form,
+but we want to using a much more general parameterization.
+In our work, we take $\theta \cdot T(x) = f(x) = \langle f, k(x,\cdot) \rangle_{\mathcal{H}}$ 
+where $f$ is a function in the reproducing kernel Hubert space $\mathcal{H}$ with kernel $k$, 
+giving [kernel exponential family (Sriperumbudur et al. 2017)](kef). In short, we want to fit 
+term inside the $\exp$ using a flexible function. 
+
+Learning such a flexible distribution in general using 
 maximum likelihood (minimizing K-L divergence) is challenging as one would need to compute the normalizer $Z$.
-However, an alternative loss other than the likelihood is the [score matching (Hyvärinen 2005)](sm) loss, 
+However, an alternative objective other is the [score matching (Hyvärinen 2005)](sm) loss, 
 which differs from the Fisher divergence
-by a constant that depends only on the data distribution (not $\theta$). 
+by a constant that depends only on the data distribution (not $\theta$).
+Thus, by minimizing the score matching loss, we are minimizing the Fisher divergence 
+between $p_\theta$ and $p_0$.
 The sample-version score matching loss is 
 
 \begin{equation}
@@ -41,15 +50,7 @@ J(\theta) = \sum_i\sum_d\partial_d^2\log p_\theta(x_i) + \frac{1}{2}(\partial_d\
 \end{equation}
 The advantage for using score matching is that we can ignore the normalizer when optimizing the natural parameters.
 
-In our work, we take $\theta \cdot T(x) = f(x) = \langle f, k(x,\cdot) \rangle_{\mathcal{H}}$ 
-where $f$ is a function in the reproducing kernel Hubert space $\mathcal{H}$ with kernel $k$, 
-giving [kernel exponential family (Sriperumbudur et al. 2017)](kef). In short, we want to fit 
-term inside the $\exp$ using a flexible function. 
-
-Previous work in our group by Strathmann et al. (2015)
-and Sutherland (2018) showed promising results of using SM to optimize a kernel exponentail family distribution, 
-both experimentally and theoretically. In those papers, the kernel is usualy a translation-invariant Gaussian kernel.
-In order to extend this approach to fit on realistic and more complex
+In order to use this approach to fit complex
 distributions, the kernel needs to adapt to 
 the shapes at different parts of data location. We show in Figure 1 of our [paper](DKEF) that 
 if the kernel has only one length-scale, even a simple mixture of a narrow and a broad Gaussians can be challenging, 
@@ -57,20 +58,20 @@ whereas a location-variant kernel is able to capture the two scales and gives a 
 
 ## Deep kernel exponential family (DKEF)
 
-In our work, we parameterize the kernel with a deep neural network $\phi_w$ on top a Gaussian kernel
+In our work, we construct a flexible kernel using a deep neural network $\phi_w$ on top a Gaussian kernel
 
 $$
 k(x,y)=\exp(-\frac{1}{2\sigma}\|\phi_w(x) - \phi_w(y)\|^2)
 $$
 
 or a mixture of such deep kernels above. We model the energy function as weighted sum of kernels centered at a set of inducing 
-points $z$. 
+points $z$
 
 $$f(x)=\sum_m\alpha_m k(x,z_m)$$
 
 The network $\phi(x)$ is fully connected with softplus nonlinearity. Using softplus ensures
-* the energy is twice-differentiable.
-* when combined with a Gaussian $q_0$, the resulting distribution is *always* normalizable.
+* the energy is twice-differentiable and the score-matching loss is well defined;
+* when combined with a Gaussian $q_0$, the resulting distribution is *always* normalizable (Proposition 2 in our [paper](DKEF).
 
 ## Two-stage training (Section 3)
 
@@ -88,7 +89,7 @@ into two sets $\mathcal{D}_1$ and $\mathcal{D}_2$, use the closed-form
 solution of the corresponding loss to find the linear coefficients $\alpha$ using a set of (training) data $\mathcal{D}_1$, 
 and then test the performance of the $\alpha$ on another set of (validation) data $\mathcal{D}_2$. 
 The optimal parameter is then found by choosing the 
-$sigma$ that yeilds the minimum validation loss. 
+$\sigma$ that yeilds the minimum validation loss. 
 
 In the above procedure, one can think of $\alpha$ as not being a 
 paramter, but rather a function $\alpha(\sigma, \mathcal{D}_1)$ that is inserted into the model definition to
@@ -104,11 +105,13 @@ It is worth noting that this two-stage training only possible given that we have
 We first fit our model on a variety of synthetic distributions and compared with likelihood based normalizing-flows.
 Since we are using a different loss (score matching loss) than the others, 
 different performances may be expected for different criterion, we thus compared different models using 
-log likelihood and Fisher divergence. The results are in Figure 2 of the [paper](DKEF). In general,
-our model is able to fit the general *shape* of the distributions much better than likelihood based methods. On real datasets,
-we compared models using finite-set Stein discrepency (Jitkrittum 2018), which uses the gradient of the models evaluated at 
-a set of random points. We found the similar conclusion that, while our model performs favorably on gradient-based methods, the 
-normalizing-flows are better in terms of likelihoods, especially for larger datasets (Figure 3 in [paper](DKEF)). 
+log likelihood and Fisher divergence. The results are in Figure 2 of the [paper](DKEF). In general, our model is able to fit the general *shape* of the distributions much better than likelihood based methods. 
+
+On real datasets,
+we compared models using finite-set Stein discrepency (Jitkrittum 2018), which compares the fit by comparing the 
+gradient of the models evaluated at a set of random points. 
+We find that, while our model performs favorably on the gradient-based FSSD measure, the 
+normalizing-flows are better in likelihoods, especially for larger datasets (Figure 3 in [paper](DKEF)). 
 
 ## Other contributions
 
@@ -132,6 +135,14 @@ Since the problem only occurs on *disjoint* supports, clustering algorithms shou
 in finding these different supports. We illustrate the effectiveness of this workaroud in the rightmost 
 column of Figure 2 in our [paper](DKEF).
 
+## Related work
+* Strathmann, H., D. Sejdinovic, S. Livingstone, Z. Szabó, and A. Gretton (2015). 
+* Sriperumbudur, B., K. Fukumizu, A. Gretton, A.
+Hyvärinen, and R. Kumar (2017). *Density estimation in infinite dimensional exponential families.* In: JMLR 18.1, pp. 1830–1888. arXiv: 1312.3516
+*Gradient-free Hamiltonian Monte Carlo with efficient kernel exponential families.* In: NIPS. arXiv: 1506.02564.
+* Sutherland, D. J., H. Strathmann, M. Arbel, and A. Gretton (2018). 
+*Efficient and principled score estimation with Nystr¨om kernel exponential families.* In: AISTATS. arXiv: 1705.08360
+* Arbel, M. and A. Gretton (2018). *Kernel Conditional Exponential Family.* In: AISTATS. arXiv: 1711.05363
 
 [DKEF]: https://arxiv.org/abs/1811.08357https://arxiv.org/abs/1811.08357
 [kef]:  http://jmlr.org/papers/v18/16-011.html
