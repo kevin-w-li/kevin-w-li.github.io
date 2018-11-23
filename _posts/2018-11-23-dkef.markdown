@@ -21,15 +21,16 @@ p_\theta(x)=\frac{1}{Z(\theta)}\exp[\theta \cdot T(x)]q_0(x)
 $$
 
 Common distributions (Gaussian, Gamma, etc.) can usually be written in this form. Learning such a distribution using 
-maximum likelihood (K-L loss) is challenging as one would need to compute the normalizer $Z$. However, an alternative loss
-other than the likelihood is the [score matching (Hyvärinen 2005)](sm) loss, which differs from the Fisher divergence
-by a constant that depends only on the data distribution. If the data were 1-D, the sample-version score matching loss is 
+maximum likelihood (minimizing K-L divergence) is challenging as one would need to compute the normalizer $Z$.
+However, an alternative loss other than the likelihood is the [score matching (Hyvärinen 2005)](sm) loss, 
+which differs from the Fisher divergence
+by a constant that depends only on the data distribution (not $\theta$). 
+The sample-version score matching loss is 
 
 \begin{equation}
 \label{eq:score}
-J(\theta) = \sum_i\partial^2\log p_\theta(x_i) + \frac{1}{2}(\partial\log p_\theta(x_i))^2
+J(\theta) = \sum_i\sum_d\partial^2\log p_\theta(x_d^{(i)}) + \frac{1}{2}(\partial_d\log p_\theta(x_d^{(i)}))^2
 \end{equation}
-
 The advantage for using score matching is that we can ignore the normalizer when optimizing the natural parameters.
 
 In our work, we take $\theta \cdot T(x) = f(x) = \langle f, k(x,\cdot) \rangle_{\mathcal{H}}$ 
@@ -63,17 +64,17 @@ The network $\phi(x)$ is fully connected with softplus nonlinearity. Using softp
 * the energy is twice-differentiable.
 * when combined with a Gaussian $q_0$, the resulting distribution is *always* normalizable.
 
-## Split training (Section 3)
+## Two-stage training (Section 3)
 
 So far, the free parameters are the weights in the network $w$, $\alpha$, $\sigma$ and inducing points $z$. 
 Naive gradient descent on the score objective will always overfit to the training data as the score 
 can be made arbitrarily good by moving $z$ towards a data point and making $\sigma$ go to zeros. Stochastic
 gradient descient might help, but would produce very unstable updates. 
 
-To train the model, we employed a split-data training procedure which helps avoid overfitting and also 
+To train the model, we employ a two-stage training procedure which helps avoid overfitting and also 
 enhances the quality of the fit, motivated by cross-validation. Consider 
-a simplified scenario where we just use a simple Gaussian kernel with bandwidth $\sigma$ as our $k$, 
-so no deep networks, to minimize some loss (regression, classification, score maching, etc.). 
+a simpler scenario where we just use a simple Gaussian kernel with bandwidth $\sigma$ as our $k$ 
+(so no deep networks) to minimize some loss (regression, classification, score maching, etc.). 
 To find the optimal $\sigma$ (and any additional regularizers $\lambda$), one would first split the data
 into two sets $\mathcal{D}_1$ and $\mathcal{D}_2$, use the closed-form
 solution of the corresponding loss to find the linear coefficients $\alpha$ using a set of (training) data $\mathcal{D}_1$, 
@@ -88,7 +89,7 @@ $\sigma$, which can be done using gradient descent facilitated by automatic diff
 through the closed-form solution of $\alpha$. Extending this approach to our model, we optimize not just $\sigma$ but 
 also $w$ and $z$ (and regularizers that we avoid here$) using the split-training procedure.
 
-It is worth noting that this is only possible given that we have closed-form solution of $\alpha$.
+It is worth noting that this two-stage training only possible given that we have closed-form solution of $\alpha$.
 
 ## Experiments and evaluation
 
@@ -126,7 +127,7 @@ column of Figure 2 in our [paper](DKEF).
 ## Conclusion
 
 1. We extended previous approach of kernel exponential family distributions using a deep kernel (kernel on top of network features).
-1. The kernel is trained using a cross-valiation like "split data" procedure.
+1. The kernel is trained using a cross-valiation like two-stage training procedure.
 1. We find that DKEF is able to capture the *shape* of distributions well.
 
 
