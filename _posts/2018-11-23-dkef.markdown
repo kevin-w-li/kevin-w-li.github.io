@@ -19,18 +19,19 @@ $$
 Common distributions (Gaussian, Gamma, etc.) can usually be written in this form. Learning such a distribution using 
 maximum likelihood (K-L loss) is challenging as one would need to compute the normalizer $Z$. However, an alternative loss
 other than the likelihood is the [score matching (SM, Hyv\"arinen 2005)](sm) loss, which differs from the Fisher divergence
-by a constant that depends only on the data distribution. If the data were 1-D, the score matching loss is 
+by a constant that depends only on the data distribution. If the data were 1-D, the sample-version score matching loss is 
 
-\begin{equation}\label{score}
-J(p,p_0) = \int_xp_0(x)\partial^2\log p_\theta(x) + \frac{1}{2}(\partial\log p_\theta(x))**2dx
+\begin{equation}
+\label{eq:score}
+J(\theta) = \sum_i\partial^2\log p_\theta(x_i) + \frac{1}{2}(\partial\log p_\theta(x_i))^2
 \end{equation}
 
 The advantage for using SM is that we can ignore the normalizer when optimizing the natural parameters.
 
 In our work, we take $\theta \cdot T(x) = f(x) = \langle f, k(x,\cdot) \rangle_{\mathcal{H}}$ 
 where $f$ is a function in the reproducing kernel Hubert space $\mathcal{H}$ with kernel $k$, 
-giving [kernel exponential family (Sriperumbudur et al. 2017)](kef). In essense, we want to fit the energy
-function of the term in the $\exp$ using a flexible function in $\mathcal{H}$. 
+giving [kernel exponential family (Sriperumbudur et al. 2017)](kef). In short, we want to fit 
+term inside the $\exp$ using a flexible function. 
 
 Previous work in our group by Strathmann et al. (2015)
 and Sutherland (2018) showed promising results of using SM to optimize a kernel exponentail family distribution, 
@@ -43,7 +44,7 @@ whereas a location-variant kernel is able to capture the two scales and gives a 
 
 ## Deep kernel exponential family (DKEF)
 
-In our work, we parameterise the kernel with a deep neural network $phi_w$ on top a Gaussian kernel
+In our work, we parameterise the kernel with a deep neural network $\phi_w$ on top a Gaussian kernel
 
 $$
 k(x,y)=\exp(-\frac{1}{2\sigma}\|\phi_w(x) - \phi_w(y)\|^2)
@@ -54,16 +55,75 @@ points $z$.
 
 $$f(x)=\sum_i\alpha_i k(x,z_i)$$
 
-The network $\phi(x)$ is fully connected with softplus nonlinearity. Using softplus ensures two things 
-1. the energy is twice-differentiable.
-2. when combined with a Gaussian $q_0$, the resulting distribution is *always* normalizable.
+The network $\phi(x)$ is fully connected with softplus nonlinearity. Using softplus ensures
+* the energy is twice-differentiable.
+* when combined with a Gaussian $q_0$, the resulting distribution is *always* normalizable.
 
-## Split training
+## Split training (Section 3)
 
-We used sample version of \eqref{score}
-
+So far, the free parameters are the weights in the network $w$, $\alpha$, $\sigma$ and inducing points $z$. 
 Naive gradient descent on the score objective will always overfit to the training data as the score 
-can be made arbitrarily good by 
+can be made arbitrarily good by moving $z$ towards a data point and making $\sigma$ go to zeros. Stochastic
+gradient descient might help, but would produce very unstable updates. 
+
+To train the model, we employed a split-data training procedure which helps avoid overfitting and also 
+enhances the quality of the fit, motivated by cross-validation. Consider 
+a simplified scenario where we just use a simple Gaussian kernel with bandwidth $\sigma$ as our $k$, 
+so no deep networks, to minimize some loss (regression, classification, score maching, etc.). 
+To find the optimal $\sigma$ (and any additional regularizers $\lambda$), one would first split the data
+into two sets $mathcal{D}_1$ and $\mathcal{D}_2$, use the closed-form
+solution of the corresponding loss to find the linear coefficients $\alpha$ using a set of (training) data $\mathcal{D}_1$, 
+and then test the performance of the $alpha$ on another set of (validation) data $\mathcal{D}_2$. 
+The optimal parameter is then found by choosing the 
+$sigma$ that yeilds the minimum validation loss. 
+
+In the above procedure, one can think of $alpha$ as not being a 
+paramter, but rather a function $\alpha(\sigma, \mathcak{D}_1)$ that is inserted into the model definition to
+compute the validation loss on $\mathcal{D}_2$. What we really care is then just the validation loss and we'd like to minimize it w.r.t.
+$\sigma$, which can be done using gradient descent facilitated by automatic differentation 
+through the closed-form solution of $\alpha$. Extending this approach to our model, we optimize not just $\sigma$ but 
+also $w$ and $z$ (and regularizers that we avoid here$) using the split-training procedure.
+
+It is worth noting that this is only possible given that we have closed-form solution of $alpha$.
+
+## Experiments and evaluation
+
+We first fit our model on a variety of synthetic distributions and compared with likelihood based normalizing-flows.
+Since we are using a different loss (score matching loss) than the others, 
+different performances may be expected for different criterion, we thus compared different models using 
+log likelihood and Fisher divergence. The results are in Figure 2 of the [paper](DKEF). In general,
+our model is able to fit the general *shape* of the distributions much better than likelihood based methods. On real datasets,
+we compared models using finite-set Stein discrepency (Jitkrittum 2018), which uses the gradient of the models evaluated at 
+a set of random points. We found the similar conclusion that, while our model performs favorably on gradient-based methods, the 
+normalizing-flows are better in terms of likelihoods, especially for larger datasets. 
+
+## Other contributions
+
+### Log-likelihood bias bounds (Section 3.2, Proposition 1)
+
+To evaluate the log-likelihoods on our model, we need to compute the (log) normalizing constant $Z(\theta)$. Due to 
+Jensen inequality, the estiamted normalizer is biased downwards, and thus our estimate of the log likelihood 
+is overestimated. We are able to find a bound on this bias, and we see that on most datasets, this bound is relatively small.
+
+### Failures on distributions with disjoint supports (Section 3.1)
+
+The normalizing flows shows an interesting type of failure with disjoint supports. On MoG, 
+there is usually a "bridge" connecting the two components, and on MoR, the problems is even more severe. 
+Also note that a single ring seems to be difficult for the normalizing flows we experimented on.
+
+On the other hand, we find that score matching fails to fit the correct mixing proportions if 
+the data are supported on (almost) disjoint regions. If you saw Figure 2 of the our [paper](DKEF) for 
+MoG and MoR, you will notice this failure mode. One solution
+would be to first discover these disjoint subsets of the data by clustering and fit a mixture model.
+Since the problem only occurs on *disjoint* supports, clustering algorithms should have little difficulty
+in finding these different supports. We illustrate the effectiveness of this workaroud in the rightmost 
+column of Figure 2 in our [paper](DKEF).
+
+## Conclusion
+
+1. We extended previous approach of kernel exponential family distributions using a deep kernel (kernel on top of network features).
+1. The kernel is trained using a cross-valiation like "split data" procedure.
+1. We find that DKEF is able to capture the *shape* of distributions well.
 
 
 [DKEF]: https://arxiv.org/abs/1811.08357https://arxiv.org/abs/1811.08357
