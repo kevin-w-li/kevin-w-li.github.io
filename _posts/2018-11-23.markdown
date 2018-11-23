@@ -5,6 +5,9 @@ date:   2018-03-18 01:06:51 +0000
 categories: research
 ---
 
-Our new [paper](DKEF).
+Our new [paper](DKEF). 
+$$
+p(x)
+$$
 
 [DKEF]: https://arxiv.org/abs/1811.08357https://arxiv.org/abs/1811.08357
