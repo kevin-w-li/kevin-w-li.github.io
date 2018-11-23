@@ -6,15 +6,66 @@ categories: research
 ---
 
 In our new [paper](DKEF), we tackle the problem of density estimation using an exponential family distribution with rich structure.
+
+## Introduction
+
+The goal is to fit a (non-)parametric distribution to observed data $\{x\}$ drawn from unknown distribution $p_0(x)$
 We know that an exponentialy family distribution can be written in the following form.
 
 $$
-p(x)\approx \exp(\theta \cdot T(x))q_0(x)
+p(x)=\frac{1}{Z(\theta)}\exp(\theta \cdot T(x))q_0(x)
 $$
 
-Common distributions (Gaussian, Gamma, etc.) can usually be written in this form. In our work, we take $\theta \cdot T(x) = f(x) = \langle f, k(x,\cdot) \rangle$ where $f$ is a function in the reproducing kernel Hubert space with kernel $k$, 
-giving [kernel exponential family](kef).
+Common distributions (Gaussian, Gamma, etc.) can usually be written in this form. Learning such a distribution using 
+maximum likelihood (K-L loss) is challenging as one would need to compute the normalizer $Z$. However, an alternative loss
+other than the likelihood is the [score matching (SM, Hyv\"arinen 2005)](sm) loss, which differs from the Fisher divergence
+by a constant that depends only on the data distribution. If the data were 1-D, the score matching loss is 
+
+\begin{equation}\label{score}
+J(p,p_0) = \int_xp_0(x)\partial^2\log p_\theta(x) + \frac{1}{2}(\partial\log p_\theta(x))**2dx
+\end{equation}
+
+The advantage for using SM is that we can ignore the normalizer when optimizing the natural parameters.
+
+In our work, we take $\theta \cdot T(x) = f(x) = \langle f, k(x,\cdot) \rangle_{\mathcal{H}}$ 
+where $f$ is a function in the reproducing kernel Hubert space $\mathcal{H}$ with kernel $k$, 
+giving [kernel exponential family (Sriperumbudur et al. 2017)](kef). In essense, we want to fit the energy
+function of the term in the $\exp$ using a flexible function in $\mathcal{H}$. 
+
+Previous work in our group by Strathmann et al. (2015)
+and Sutherland (2018) showed promising results of using SM to optimize a kernel exponentail family distribution, 
+both experimentally and theoretically. In those papers, the kernel is usualy common translation-invariant kernels.
+In order to extend this approach to fit on realistic and more complex
+distributions, the kernel needs to have much better representatioanl power and adapt to 
+the shapes at different parts of data location. We show in Figure 1 of our [paper](DKEF) that 
+if the kernel has only one length-scale, even a simple mixture of a narrow and a broad Gaussians can be challenging, 
+whereas a location-variant kernel is able to capture the two scales and gives a much better fit.
+
+## Deep kernel exponential family (DKEF)
+
+In our work, we parameterise the kernel with a deep neural network $phi_w$ on top a Gaussian kernel
+
+$$
+k(x,y)=\exp(-\frac{1}{2\sigma}\|\phi_w(x) - \phi_w(y)\|^2)
+$$
+
+or a mixture of such deep kernels above. We model the energy function as weighted sum of kernels centered at a set of inducing 
+points $z$. 
+
+$$f(x)=\sum_i\alpha_i k(x,z_i)$$
+
+The network $\phi(x)$ is fully connected with softplus nonlinearity. Using softplus ensures two things 
+1. the energy is twice-differentiable.
+2. when combined with a Gaussian $q_0$, the resulting distribution is *always* normalizable.
+
+## Split training
+
+We used sample version of \eqref{score}
+
+Naive gradient descent on the score objective will always overfit to the training data as the score 
+can be made arbitrarily good by 
 
 
 [DKEF]: https://arxiv.org/abs/1811.08357https://arxiv.org/abs/1811.08357
 [kef]:  http://jmlr.org/papers/v18/16-011.html
+[sm]: https://www.cs.helsinki.fi/u/ahyvarin/papers/JMLR05.pdf
