@@ -3,11 +3,17 @@ layout: page
 title: Publications
 ---
 
-### 2018
+### 2019
+
+* Li K. Wenliang, Eszter Vertes, Maneesh Sahani *Accurate and adaptive neural recognition in dynamical environment*
+[[poster]({"/pubs/ddc_ssm_poster.pdf" | absolute_url }})]
+[[abstract]({{ "/pubs/ddc_ssm_abstract.pdf" | absolute_url }})]
 
 * Li K. Wenliang\*, Dougal Sutherland\*, Heiko Strathmann, Arthur Gretton, *Learning deep kernels for exponential family densities*  
 [[link](https://arxiv.org/abs/1811.08357)]
 [[code](https://github.com/kevin-w-li/deep-kexpfam)]
+
+### 2018
 
 * Li K. Wenliang and Aaron R. Seitz, *Deep neural network for modeling visual perceptual learning*, Journal of Neuroscience.  
 [[link](http://www.jneurosci.org/content/38/27/6028)]
