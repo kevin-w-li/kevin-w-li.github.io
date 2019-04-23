@@ -9,7 +9,7 @@ title: Publications
 [[poster]({"/pubs/ddc_ssm_poster.pdf" | absolute_url }})]
 [[abstract]({{ "/pubs/ddc_ssm_abstract.pdf" | absolute_url }})]
 
-* Li K. Wenliang\*, Dougal Sutherland\*, Heiko Strathmann, Arthur Gretton, *Learning deep kernels for exponential family densities* ICML 2019, Long Beach, CA
+* Li K. Wenliang\*, Dougal Sutherland\*, Heiko Strathmann, Arthur Gretton, *Learning deep kernels for exponential family densities* ICML 2019, Long Beach, CA, USA
 [[link](https://arxiv.org/abs/1811.08357)]
 [[code](https://github.com/kevin-w-li/deep-kexpfam)]
 
