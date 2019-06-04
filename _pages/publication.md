@@ -6,11 +6,11 @@ title: Publications
 ### 2019
 
 * Li K. Wenliang, Maneesh Sahani *A neurally plausible model for online recognition and postdiction*, submitted
-[[pre-print]({"/pubs/ddc_ssm_paper.pdf" | absolute_url }})]
-[[slides]({"/pubs/ddc_postdict_tricentre.pdf" | absolute_url }})]
+[[pre-print]({{"/pubs/ddc_ssm_paper.pdf" | absolute_url }})]
+[[slides]({{"/pubs/ddc_postdict_tricentre.pdf" | absolute_url }})]
 
 * Li K. Wenliang, Eszter Vertes, Maneesh Sahani *Accurate and adaptive neural recognition in dynamical environment* COSYNE Abstracts 2019, Lisbon, Portugal
-[[poster]({"/pubs/ddc_ssm_poster.pdf" | absolute_url }})]
+[[poster]({{"/pubs/ddc_ssm_poster.pdf" | absolute_url }})]
 [[abstract]({{ "/pubs/ddc_ssm_abstract.pdf" | absolute_url }})]
 
 * Li K. Wenliang\*, Dougal Sutherland\*, Heiko Strathmann, Arthur Gretton, *Learning deep kernels for exponential family densities*, ICML 2019, Long Beach, CA, USA
