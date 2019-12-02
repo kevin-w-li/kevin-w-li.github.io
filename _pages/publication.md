@@ -11,6 +11,7 @@ title: Publications
 * Li K. Wenliang, Maneesh Sahani *A neurally plausible model for online recognition and postdiction*, NeurIPS 2019
 [[pre-print](https://www.biorxiv.org/content/10.1101/672089v2)]
 [[talk (tri-center)]({{"/pubs/ddc_postdict_tricentre.pdf" | absolute_url }})]
+[[poster]({{ "/pubs/ddc_neurips19.pdf" | absolute_url }})]
 
 * Li K. Wenliang, Eszter Vertes, Maneesh Sahani *Accurate and adaptive neural recognition in dynamical environment* COSYNE Abstracts 2019, Lisbon, Portugal
 [[poster]({{"/pubs/ddc_ssm_poster.pdf" | absolute_url }})]
