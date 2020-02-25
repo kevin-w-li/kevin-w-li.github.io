@@ -4,9 +4,9 @@ title: Publications
 ---
 
 ### 2020
-Li K. Wenliang, Theodore Moskovitz, Heishiro Kanagawa, Maneesh Sahani *Amortised learning by wake-sleep*, 
-submitted.
-[[pre-print]( https://arxiv.org/abs/2002.09737 )]
+* Li K. Wenliang, Theodore Moskovitz, Heishiro Kanagawa, Maneesh Sahani 
+  *Amortised learning by wake-sleep*, submitted.
+  [[pre-print]( https://arxiv.org/abs/2002.09737 )]
 [[slides]({{"/pubs/alws_talk.pdf" | absolute_url }})]
 [[code](https://github.com/kevin-w-li/al-ws)]
 
