@@ -3,15 +3,24 @@ layout: page
 title: Publications
 ---
 
+### 2020
+Li K. Wenliang, Theodore Moskovitz, Heishiro Kanagawa, Maneesh Sahani *Amortised learning by wake-sleep*, 
+submitted.
+[[pre-print]( https://arxiv.org/abs/2002.09737 )]
+[[slides]({{"/pubs/alws_talk.pdf" | absolute_url }})]
+[[code](https://github.com/kevin-w-li/al-ws)]
+
+
 ### 2019
 * Li K. Wenliang, Maneesh Sahani *Neural recognition and postdiction by temporal distributed distributed code*, Bernstein Conference 2019, Berlin, Germany
 [[abstract](https://abstracts.g-node.org/conference/BC19/abstracts#/uuid/eb96f0be-3446-45a1-8e33-90428e270eb6)]
 [[poster]({{ "/pubs/ddc_bernstein.pdf" | absolute_url }})]
 
 * Li K. Wenliang, Maneesh Sahani *A neurally plausible model for online recognition and postdiction*, NeurIPS 2019
-[[pre-print](https://www.biorxiv.org/content/10.1101/672089v2)]
-[[talk (tri-center)]({{"/pubs/ddc_postdict_tricentre.pdf" | absolute_url }})]
+[[paper](http://papers.nips.cc/paper/9159-a-neurally-plausible-model-for-online-recognition-and-postdiction-in-a-dynamical-environment)]
+[[slides (tri-center)]({{"/pubs/ddc_postdict_tricentre.pdf" | absolute_url }})]
 [[poster]({{ "/pubs/ddc_neurips19.pdf" | absolute_url }})]
+[[pre-print](https://www.biorxiv.org/content/10.1101/672089v2)]
 
 * Li K. Wenliang, Eszter Vertes, Maneesh Sahani *Accurate and adaptive neural recognition in dynamical environment* COSYNE Abstracts 2019, Lisbon, Portugal
 [[poster]({{"/pubs/ddc_ssm_poster.pdf" | absolute_url }})]
