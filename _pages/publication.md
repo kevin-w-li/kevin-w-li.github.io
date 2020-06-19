@@ -19,7 +19,7 @@ title: Publications
 
 
 ### 2019
-* Li K. Wenliang, Maneesh Sahani *Neural recognition and postdiction by temporal distributed distributed code*, Bernstein Conference, Berlin, Germany
+* Li K. Wenliang, Maneesh Sahani *Neural recognition and postdiction by temporal distributed distributional code*, Bernstein Conference 2019, Berlin, Germany
 [[abstract](https://abstracts.g-node.org/conference/BC19/abstracts#/uuid/eb96f0be-3446-45a1-8e33-90428e270eb6)]
 [[poster]({{ "/pubs/ddc_bernstein.pdf" | absolute_url }})]
 
