@@ -9,7 +9,7 @@ title: Publications
   *COT-GAN: Generating Sequential Data via Causal Optimal Transport*, submitted.
  [[pre-print]( https://arxiv.org/abs/2006.08571 )]
 [[code](  https://github.com/neuripss2020/COT-GAN  )]
-[[contributions] ({{ "/_pages/cotgan_contribs.md" | absolute_url }}) ]
+[[contributions] ({{ "/pubs/cotgan_contribs.md" | absolute_url }}) ]
 
 * Li K. Wenliang, Theodore Moskovitz, Heishiro Kanagawa, Maneesh Sahani 
   *Amortised learning by wake-sleep*, ICML.
