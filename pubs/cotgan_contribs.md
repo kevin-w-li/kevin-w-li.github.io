@@ -1,6 +1,6 @@
 ---
-layout: page
-title: My contributions to COT-GAN paper
+layout: post
+title: "My contributions to COT-GAN paper"
 ---
 
 * designed all experiments (datasets and performance metrics);
