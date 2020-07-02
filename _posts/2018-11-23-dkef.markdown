@@ -108,7 +108,7 @@ different performances may be expected for different criterion, we thus compared
 log likelihood and Fisher divergence. The results are in Figure 2 of the [paper][DKEF]. 
 In general, our model is able to fit the general *shape* of the distributions much better than likelihood based methods. 
 
-![image-title-here](figs/toys_icml_q1.png){:class="img-responsive"}
+![image-title-here](./figs/toys_icml_q1.png){:class="img-responsive"}
 
 On real datasets,
 we compared models using finite-set Stein discrepency [(Jitkrittum 2018)][fssd], which compares the fit by comparing the 
