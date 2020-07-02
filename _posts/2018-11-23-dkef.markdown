@@ -5,7 +5,7 @@ date:   2018-11-23 13:55:51 +0000
 categories: research
 ---
 
-In our new [paper](DKEF), we tackle the problem of density estimation using an exponential family distribution with rich structure.
+In our new [paper][DKEF], we tackle the problem of density estimation using an exponential family distribution with rich structure.
 The authors are me\*, 
 [Dougal Sutherland](http://www.gatsby.ucl.ac.uk/~dougals/)\*, 
 [Heiko Strathmann](http://herrstrathmann.de/) and 
@@ -32,12 +32,12 @@ Many well known distributions (Gaussian, Gamma, etc.) can usually be written in 
 but we want to using a much more general parameterization.
 In our work, we take $\theta \cdot T(x) = f(x) = \langle f, k(x,\cdot) \rangle_{\mathcal{H}}$ 
 where $f$ is a function in the reproducing kernel Hubert space $\mathcal{H}$ with kernel $k$, 
-giving [kernel exponential family (Sriperumbudur et al. 2017)](kef). In short, we want to fit 
+giving [kernel exponential family][kef]. In short, we want to fit 
 term inside the $\exp$ using a flexible function. 
 
 Learning such a flexible distribution in general using 
 maximum likelihood (minimizing KL divergence) is challenging due to the intractable normalizer $Z$.
-However, an alternative objective is the [score matching (Hyvärinen 2005)](sm) loss, 
+However, an alternative objective is the [score matching][sm] loss, 
 which is related to the Fisher divergence.
 Thus, by minimizing the score matching loss, we are minimizing the Fisher divergence 
 between $p_\theta$ and $p_0$.
@@ -52,7 +52,7 @@ The advantage for using score matching is that we can ignore the normalizer when
 
 In order to use this approach to fit complex
 distributions, the kernel needs to adapt to 
-the shapes at different parts of data domain. We show in Figure 1 of our [paper](DKEF) that
+the shapes at different parts of data domain. We show in Figure 1 of our [paper][DKEF] that
 if we use a Gaussian kernel, and the kernel has only one length-scale, then even fitting a simple mixture of Gaussians can be challenging, 
 whereas a location-variant kernel is able to capture the two scales and give a much better fit.
 
@@ -105,14 +105,16 @@ also $w$ and $z$ (and regularization parameters) using the split-training proced
 We first fit our model on a variety of synthetic distributions and compare with likelihood based normalizing-flows.
 Since we are using a different loss (score matching loss) than the others, 
 different performances may be expected for different criterion, we thus compared different models using 
-log likelihood and Fisher divergence. The results are in Figure 2 of the [paper](DKEF). 
+log likelihood and Fisher divergence. The results are in Figure 2 of the [paper][DKEF]. 
 In general, our model is able to fit the general *shape* of the distributions much better than likelihood based methods. 
 
+![image-title-here](figs/toys_icml_q1.png){:class="img-responsive"}
+
 On real datasets,
-we compared models using finite-set Stein discrepency [(Jitkrittum 2018)](fssd), which compares the fit by comparing the 
+we compared models using finite-set Stein discrepency [(Jitkrittum 2018)][fssd], which compares the fit by comparing the 
 gradient of the models evaluated at a set of random points. 
 We find that, while our model performs favorably on the gradient-based FSSD measure, the 
-normalizing-flows are better in likelihoods, especially for larger datasets (Figure 3 in [paper](DKEF)). 
+normalizing-flows are better in likelihoods, especially for larger datasets (Figure 3 in [paper][DKEF]). 
 
 ## Other contributions
 
@@ -124,14 +126,14 @@ is overestimated. We are able to estimate a bound on this bias.
 
 ### Failures on distributions with disjoint supports (Section 3.1)
 
-The normalizing flows shows an interesting type of failure with disjoint supports. On mixture of Gaussians (Figure 2 in [paper](DKEF)), 
+The normalizing flows shows an interesting type of failure with disjoint supports. On mixture of Gaussians (Figure 2 in [paper][DKEF]), 
 there is usually a "bridge" connecting the two components, and on mixture of rings, the problem is even more severe. 
 
 On the other hand, we find that score matching fails to fit the correct mixing proportions if 
 the data distribution is a mixture model and the components are supported on (almost) disjoint regions. One solution
 would be to first discover these disjoint subsets of the data by clustering and fit a mixture model.
 We illustrate the effectiveness of this workaroud in the rightmost 
-column of Figure 2 in our [paper](DKEF).
+column of Figure 2 in our [paper][DKEF].
 
 ## Related work
 * Strathmann, H., D. Sejdinovic, S. Livingstone, Z. Szabó, and A. Gretton (2015). 
