@@ -55,6 +55,14 @@ distributions, the kernel needs to adapt to
 the shapes at different parts of data domain. We show in Figure 1 of our [paper][DKEF] that
 if we use a Gaussian kernel, and the kernel has only one length-scale, then even fitting a simple mixture of Gaussians can be challenging, 
 whereas a location-variant kernel is able to capture the two scales and give a much better fit.
+![Figure 1](/assets/figs/MoG_scale.png)
+*Fitting few samples from a Gaussian mixture,
+    using kernel exponential families.
+    Black dotted lines show $k(-1, \x)$, $k(0, \x)$, and $k(1, \x)$.
+    (Left) Using a location-invariant Gaussian kernel,
+    the sharper component gets too much weight.
+    (Right) A kernel parameterized by a neural network learns length scales that adapt to the density,
+    giving a much better fit.*
 
 ## Deep kernel exponential family (DKEF)
 
@@ -109,6 +117,14 @@ log likelihood and Fisher divergence. The results are in Figure 2 of the [paper]
 In general, our model is able to fit the general *shape* of the distributions much better than likelihood based methods. 
 
 ![Figure 2](/assets/figs/toys_icml_q1.png)
+*Log densities learned by different models. Our model is DKEF-G-15 at the bottom row.
+Columns are different synthetic datasets. The rightmost columns shows a 
+mixture of each model (except KCEF) on the same clustering of MoR.
+We subtracted the maximum from each log density, and clipped the minimum value at $-9$.
+Above each panel are shown the average log-likelihoods (left) and Fisher divergence (right) on held-out data points.
+Bold indicates the best fit.
+For DKEF-G models, 
+faint colored lines correspond to contours at 0.9 of the kernel evaluated at different locations.*
 
 On real datasets,
 we compared models using finite-set Stein discrepency [(Jitkrittum 2018)][fssd], which compares the fit by comparing the 
