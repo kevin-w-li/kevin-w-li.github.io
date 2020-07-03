@@ -55,7 +55,7 @@ distributions, the kernel needs to adapt to
 the shapes at different parts of data domain. We show in Figure 1 of our [paper][DKEF] that
 if we use a Gaussian kernel, and the kernel has only one length-scale, then even fitting a simple mixture of Gaussians can be challenging, 
 whereas a location-variant kernel is able to capture the two scales and give a much better fit.
-![Figure 1](/assets/figs/MoG_scale.png)
+![Figure 1](/assets/figs/MoG_scales.png)
 *Fitting few samples from a Gaussian mixture,
     using kernel exponential families.
     Black dotted lines show $k(-1, \x)$, $k(0, \x)$, and $k(1, \x)$.
