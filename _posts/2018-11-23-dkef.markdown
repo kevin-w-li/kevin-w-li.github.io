@@ -120,7 +120,7 @@ In general, our model is able to fit the general *shape* of the distributions mu
 *Log densities learned by different models. Our model is DKEF-G-15 at the bottom row.
 Columns are different synthetic datasets. The rightmost columns shows a 
 mixture of each model (except KCEF) on the same clustering of MoR.
-We subtracted the maximum from each log density, and clipped the minimum value at $-9$.
+We subtracted the maximum from each log density, and clipped the minimum value at -9.
 Above each panel are shown the average log-likelihoods (left) and Fisher divergence (right) on held-out data points.
 Bold indicates the best fit.
 For DKEF-G models, 
