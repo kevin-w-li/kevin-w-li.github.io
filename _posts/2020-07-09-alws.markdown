@@ -19,7 +19,7 @@ Dating way back, the wake-sleep component was born with the Helmholtz machine by
 
 ## The usual path of the ELBO
 
-Many unsupervised learning algorithms rely on fitting generative models on datasets. We focus on a broad class of generative models that can be written as $p_\theta(z,x)=p_\theta(x)p_\theta(x|z)$ where $z$ denotes all latent variables, and $x$ denotes the observations. **Note that this model could have any arbitrary graphical structure**: the latent $z$ can be a tree, a Markov chain (giving hidden Markov models) or even loopy.
+Many unsupervised learning algorithms rely on fitting generative models on datasets. We focus on a broad class of generative models that can be written as $p_\theta(z,x)=p_\theta(z)p_\theta(x|z)$ where $z$ denotes all latent variables, and $x$ denotes the observations. **Note that this model could have any arbitrary graphical structure**: the latent $z$ can be a tree, a Markov chain (giving hidden Markov models) or even loopy.
 Due to the intractable normaliser, we cannot compute the log-likelihood $$\log p_\theta (x) = \int p_\theta(z,x)\text{d}z$$ or its gradient directly. 
 
 From textbooks, we know that an alternative objective is the ELBO or free energy
