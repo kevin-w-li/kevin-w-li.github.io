@@ -7,13 +7,13 @@ title: Publications
 
 * Tianlin Xu, Li K. Wenliang, Michael Munn, Beatrice Acciaio
   *COT-GAN: Generating Sequential Data via Causal Optimal Transport*, NeurIPS
- [[pre-print]( https://arxiv.org/abs/2006.08571 )]
+ [[pre-print]( https://arxiv.org/pdf/2006.08571v1.pdf )]
 [[code](  https://github.com/neuripss2020/COT-GAN  )]
 [[contributions]({{ "/pubs/cotgan_contribs.txt" | absolute_url }})]
 
 * Li K. Wenliang, Theodore Moskovitz, Heishiro Kanagawa, Maneesh Sahani 
   *Amortised learning by wake-sleep*, ICML
-  [[paper]( https://proceedings.icml.cc/static/paper_files/icml/2020/5769-Paper.pdf )]
+  [[paper]( http://proceedings.mlr.press/v119/wenliang20a.html )]
 [[slides](https://icml.cc/media/Slides/icml/2020/virtual(no-parent)-16-20-00UTC-6696-amortised_learn.pdf)]
 [[code](https://github.com/kevin-w-li/al-ws)]
 
