@@ -5,17 +5,17 @@ title: Publications
 
 ### 2020
 
-* Li K. Wenliang 
+* Li K. Wenliang, 
   *Blindness of score-based methods to isolated components and mixing proportions*
   [[pre-print](https://arxiv.org/abs/2008.10087)]
 
-* Tianlin Xu, Li K. Wenliang, Michael Munn, Beatrice Acciaio
+* Tianlin Xu, Li K. Wenliang, Michael Munn, Beatrice Acciaio, 
   *COT-GAN: Generating Sequential Data via Causal Optimal Transport*, NeurIPS
  [[pre-print]( https://arxiv.org/pdf/2006.08571v1.pdf )]
 [[code](  https://github.com/neuripss2020/COT-GAN  )]
 [[contributions]({{ "/pubs/cotgan_contribs.txt" | absolute_url }})]
 
-* Li K. Wenliang, Theodore Moskovitz, Heishiro Kanagawa, Maneesh Sahani 
+* Li K. Wenliang, Theodore Moskovitz, Heishiro Kanagawa, Maneesh Sahani, 
   *Amortised learning by wake-sleep*, ICML
   [[paper]( http://proceedings.mlr.press/v119/wenliang20a.html )]
 [[slides](https://icml.cc/media/Slides/icml/2020/virtual(no-parent)-16-20-00UTC-6696-amortised_learn.pdf)]
@@ -23,17 +23,17 @@ title: Publications
 
 
 ### 2019
-* Li K. Wenliang, Maneesh Sahani *Neural recognition and postdiction by temporal distributed distributional code*, Bernstein Conference 2019, Berlin, Germany
+* Li K. Wenliang, Maneesh Sahani, *Neural recognition and postdiction by temporal distributed distributional code*, Bernstein Conference 2019, Berlin, Germany
 [[abstract](https://abstracts.g-node.org/conference/BC19/abstracts#/uuid/eb96f0be-3446-45a1-8e33-90428e270eb6)]
 [[poster]({{ "/pubs/ddc_bernstein.pdf" | absolute_url }})]
 
-* Li K. Wenliang, Maneesh Sahani *A neurally plausible model for online recognition and postdiction*, NeurIPS
+* Li K. Wenliang, Maneesh Sahani, *A neurally plausible model for online recognition and postdiction*, NeurIPS
 [[paper](http://papers.nips.cc/paper/9159-a-neurally-plausible-model-for-online-recognition-and-postdiction-in-a-dynamical-environment)]
 [[slides (tri-center)]({{"/pubs/ddc_postdict_tricentre.pdf" | absolute_url }})]
 [[poster]({{ "/pubs/ddc_neurips19.pdf" | absolute_url }})]
 [[pre-print](https://www.biorxiv.org/content/10.1101/672089v2)]
 
-* Li K. Wenliang, Eszter Vertes, Maneesh Sahani *Accurate and adaptive neural recognition in dynamical environment* COSYNE Abstracts, Lisbon, Portugal
+* Li K. Wenliang, Eszter Vertes, Maneesh Sahani, *Accurate and adaptive neural recognition in dynamical environment* COSYNE Abstracts, Lisbon, Portugal
 [[poster]({{"/pubs/ddc_ssm_poster.pdf" | absolute_url }})]
 [[abstract]({{ "/pubs/ddc_ssm_abstract.pdf" | absolute_url }})]
 
