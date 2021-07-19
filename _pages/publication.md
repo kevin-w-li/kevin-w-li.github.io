@@ -5,6 +5,10 @@ title: Publications
 
 ### 2020
 
+* Li K. Wenliang 
+  *Blindness of score-based methods to isolated components and mixing proportions*
+  [[pre-print](https://arxiv.org/abs/2008.10087)]
+
 * Tianlin Xu, Li K. Wenliang, Michael Munn, Beatrice Acciaio
   *COT-GAN: Generating Sequential Data via Causal Optimal Transport*, NeurIPS
  [[pre-print]( https://arxiv.org/pdf/2006.08571v1.pdf )]
