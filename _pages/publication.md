@@ -3,20 +3,30 @@ layout: page
 title: Publications
 ---
 
+### 2021
+
+* Li K. Wenliang, Heishiro Kanagawa, 
+  *Blindness of score-based methods to isolated components and mixing proportions*, NeurIPS Workshop Workshop Your Model Is Wrong: Robustness and Misspecification in Probabilistic Modeling
+  [[paper](https://arxiv.org/abs/2008.10087)]
+
+* Longyuan Li, Jian Yao, Li Kevin Wenliang, Tong He, Tianjun Xiao, Junchi Yan, David P Wipf, Zheng Zhang, 
+  *GRIN: Generative Relation and Intention Network for Multi-agent Trajectory Prediction*, Advances in Neural Information Processing Systems
+  [[pre-print](https://openreview.net/forum?id=ephWA7KaWmD)]
+  
+* Bin Dai, Li Kevin Wenliang, David P Wipf, 
+  *GRIN: Generative Relation and Intention Network for Multi-agent Trajectory Prediction*, Advances in Neural Information Processing Systems
+  [[pre-print](https://openreview.net/forum?id=oumDUrf2dAB)]
+
 ### 2020
 
-* Li K. Wenliang, 
-  *Blindness of score-based methods to isolated components and mixing proportions*
-  [[pre-print](https://arxiv.org/abs/2008.10087)]
-
 * Tianlin Xu, Li K. Wenliang, Michael Munn, Beatrice Acciaio, 
-  *COT-GAN: Generating Sequential Data via Causal Optimal Transport*, NeurIPS
+  *COT-GAN: Generating Sequential Data via Causal Optimal Transport*, Advances in Neural Information Processing Systems
  [[pre-print]( https://arxiv.org/pdf/2006.08571v1.pdf )]
 [[code](  https://github.com/neuripss2020/COT-GAN  )]
 [[contributions]({{ "/pubs/cotgan_contribs.txt" | absolute_url }})]
 
 * Li K. Wenliang, Theodore Moskovitz, Heishiro Kanagawa, Maneesh Sahani, 
-  *Amortised learning by wake-sleep*, ICML
+  *Amortised learning by wake-sleep*, Internatioanl Conference in Machine Learning
   [[paper]( http://proceedings.mlr.press/v119/wenliang20a.html )]
 [[slides](https://icml.cc/media/Slides/icml/2020/virtual(no-parent)-16-20-00UTC-6696-amortised_learn.pdf)]
 [[code](https://github.com/kevin-w-li/al-ws)]
@@ -27,7 +37,7 @@ title: Publications
 [[abstract](https://abstracts.g-node.org/conference/BC19/abstracts#/uuid/eb96f0be-3446-45a1-8e33-90428e270eb6)]
 [[poster]({{ "/pubs/ddc_bernstein.pdf" | absolute_url }})]
 
-* Li K. Wenliang, Maneesh Sahani, *A neurally plausible model for online recognition and postdiction*, NeurIPS
+* Li K. Wenliang, Maneesh Sahani, *A neurally plausible model for online recognition and postdiction*, Advances in Neural Information Processing Systems
 [[paper](http://papers.nips.cc/paper/9159-a-neurally-plausible-model-for-online-recognition-and-postdiction-in-a-dynamical-environment)]
 [[slides (tri-center)]({{"/pubs/ddc_postdict_tricentre.pdf" | absolute_url }})]
 [[poster]({{ "/pubs/ddc_neurips19.pdf" | absolute_url }})]
@@ -37,7 +47,7 @@ title: Publications
 [[poster]({{"/pubs/ddc_ssm_poster.pdf" | absolute_url }})]
 [[abstract]({{ "/pubs/ddc_ssm_abstract.pdf" | absolute_url }})]
 
-* Li K. Wenliang\*, Dougal Sutherland\*, Heiko Strathmann, Arthur Gretton, *Learning deep kernels for exponential family densities*, ICML, Long Beach, CA, USA
+* Li K. Wenliang\*, Dougal Sutherland\*, Heiko Strathmann, Arthur Gretton, *Learning deep kernels for exponential family densities*, Internatioanl Conference in Machine Learning
 [[link](https://arxiv.org/abs/1811.08357)]
 [[code](https://github.com/kevin-w-li/deep-kexpfam)]
 
