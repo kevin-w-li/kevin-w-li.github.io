@@ -3,6 +3,28 @@ layout: page
 title: Publications
 ---
 
+### 2022
+
+* Li K Wenliang
+  *A distributional Bayesian learning theory for visual perceptual learning*, COSYNE Abstracts, Lisbon
+[[abstract]({{ "/pubs/weights_abstract.pdf" | absolute_url }})]
+
+### 2021
+
+* Li K Wenliang, Heishiro Kanagawa
+  *Blindness of score-based methods to isolated components and mixing proportions*, NeurIPS Workshop Your Model is Wrong
+[[paper](https://arxiv.org/abs/2008.10087)]
+
+
+* Bin Dai, Li K. Wenliang, David Wipf
+  *On the Value of Infinite Gradients in Variational Autoencoder Models*, NeurIPS
+[[paper](https://proceedings.neurips.cc/paper/2021/hash/3a15c7d0bbe60300a39f76f8a5ba6896-Abstract.html )]
+
+
+* Longyuan Li, Jian Yao, Li K. Wenliang, Tong He, Tianjun Xiao, Junchi Yan, David Wipf, Zheng Zhang 
+  *GRIN: Generative Relation and Intention Network for Multi-agent Trajectory Prediction*, NeurIPS
+[[paper]( https://proceedings.neurips.cc/paper/2021/hash/e3670ce0c315396e4836d7024abcf3dd-Abstract.html   )]
+
 ### 2020
 
 * Tianlin Xu, Li K. Wenliang, Michael Munn, Beatrice Acciaio
@@ -19,7 +41,7 @@ title: Publications
 
 
 ### 2019
-* Li K. Wenliang, Maneesh Sahani *Neural recognition and postdiction by temporal distributed distributional code*, Bernstein Conference 2019, Berlin, Germany
+* Li K. Wenliang, Maneesh Sahani *Neural recognition and postdiction by temporal distributed distributional code*, Bernstein Conference 2019, Berlin
 [[abstract](https://abstracts.g-node.org/conference/BC19/abstracts#/uuid/eb96f0be-3446-45a1-8e33-90428e270eb6)]
 [[poster]({{ "/pubs/ddc_bernstein.pdf" | absolute_url }})]
 
@@ -29,11 +51,11 @@ title: Publications
 [[poster]({{ "/pubs/ddc_neurips19.pdf" | absolute_url }})]
 [[pre-print](https://www.biorxiv.org/content/10.1101/672089v2)]
 
-* Li K. Wenliang, Eszter Vertes, Maneesh Sahani *Accurate and adaptive neural recognition in dynamical environment* COSYNE Abstracts, Lisbon, Portugal
+* Li K. Wenliang, Eszter Vertes, Maneesh Sahani *Accurate and adaptive neural recognition in dynamical environment* COSYNE Abstracts, Lisbon
 [[poster]({{"/pubs/ddc_ssm_poster.pdf" | absolute_url }})]
 [[abstract]({{ "/pubs/ddc_ssm_abstract.pdf" | absolute_url }})]
 
-* Li K. Wenliang\*, Dougal Sutherland\*, Heiko Strathmann, Arthur Gretton, *Learning deep kernels for exponential family densities*, ICML, Long Beach, CA, USA
+* Li K. Wenliang\*, Dougal Sutherland\*, Heiko Strathmann, Arthur Gretton, *Learning deep kernels for exponential family densities*, ICML, Long Beach
 [[link](https://arxiv.org/abs/1811.08357)]
 [[code](https://github.com/kevin-w-li/deep-kexpfam)]
 
@@ -44,7 +66,7 @@ title: Publications
 [[pre-print]({{ "/pubs/lisei2018_ms.pdf" | absolute_url }})]
 [[code](https://github.com/kevin-w-li/DNN_for_VPL)]
 
-* Li Wenliang and Maneesh Sahani, *Neural network trained with supervision represents uncertainty by nonlinear moments*, COSYNE Abstracts, Denver, CO, USA.  
+* Li Wenliang and Maneesh Sahani, *Neural network trained with supervision represents uncertainty by nonlinear moments*, COSYNE Abstracts, Denver, USA
 [[poster]({{ "/pubs/cosyne_2018.pdf" | absolute_url }})]
 [[abstract]({{ "/pubs/tensorrnn.pdf" | absolute_url }})]
 
