@@ -9,6 +9,7 @@ Teaching assistant
     * [Tutorial on deep learning]({{ "/pubs/CCNSS_DL.pdf" | absolute_url }}) and applications to computational neuroscience. 
     * Helped students on projects of meta-learning, language modelling, memory retrieval, computational psychiatry, etc.
 
+
 *   [Neuromatch Academy](https://neurologyacademy.org/): TA for 2020, Project TA and Course Consultant for 2021
 
 *   [Machine learning summer school 2019](https://sites.google.com/view/mlss-2019)
