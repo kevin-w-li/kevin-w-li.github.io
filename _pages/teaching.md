@@ -4,6 +4,7 @@ title: Teaching
 ---
 
 Teaching assistant 
+*   [Computational and Cognitive Neuroscience Summer School, 2023](https://www.ccnss.org/): Yuxiu Shao and I wrote [[this maths tutorial]({{ "/pubs/CCNSS_maths.pdf" | absolute_url }})] as a reminder of key concepts for computational modelling.
 
 *   [Neuromatch Academy 2020](https://neurologyacademy.org/)
 
