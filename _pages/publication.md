@@ -9,7 +9,7 @@ title: Publications
 *Distributional Bellman Operators over Mean Embeddings*, ICML
 [[pre-print](https://arxiv.org/abs/2312.07358)] [[paper](https://openreview.net/forum?id=j2pLfsBm4J)] [[code](https://github.com/google-deepmind/sketch_dqn)]
 
-* Zhe Wang, Petar Veličković, Daniel Hennes, Nenad Tomašev, Laurel Prince, Michael Kaisers, Yoram Bachrach, Romuald Elie, Li Kevin Wenliang, Federico Piccinini, William Spearman, Ian Graham, Jerome Connor, Yi Yang, Adrià Recasens, Mina Khan, Nathalie Beauguerlange, Pablo Sprechmann, Pol Moreno, Nicolas Heess, Michael Bowling, Demis Hassabis, Karl Tuyls,
+* Zhe Wang, Petar Veličković, Daniel Hennes, Nenad Tomašev, Laurel Prince, Michael Kaisers, Yoram Bachrach, Romuald Elie, Li K. Wenliang, Federico Piccinini, William Spearman, Ian Graham, Jerome Connor, Yi Yang, Adrià Recasens, Mina Khan, Nathalie Beauguerlange, Pablo Sprechmann, Pol Moreno, Nicolas Heess, Michael Bowling, Demis Hassabis, Karl Tuyls,
 *TacticAI: an AI assistant for football tactics*, Nature Communication
 [[pre-print](https://arxiv.org/abs/2310.10553)] [[paper](https://www.nature.com/articles/s41467-024-45965-x)]
 
