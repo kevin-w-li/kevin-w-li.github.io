@@ -3,15 +3,73 @@ layout: page
 title: Publications
 ---
 
+### 2024
+
+* Li K. Wenliang, Grégoire Delétang, Matthew Aitchison, Marcus Hutter, Anian Ruoss, Arthur Gretton, Mark Rowland,
+*Distributional Bellman Operators over Mean Embeddings*, ICML
+[[pre-print](https://arxiv.org/abs/2312.07358)] [[paper](https://openreview.net/forum?id=j2pLfsBm4J)] [[code](https://github.com/google-deepmind/sketch_dqn)]
+
+* Zhe Wang, Petar Veličković, Daniel Hennes, Nenad Tomašev, Laurel Prince, Michael Kaisers, Yoram Bachrach, Romuald Elie, Li Kevin Wenliang, Federico Piccinini, William Spearman, Ian Graham, Jerome Connor, Yi Yang, Adrià Recasens, Mina Khan, Nathalie Beauguerlange, Pablo Sprechmann, Pol Moreno, Nicolas Heess, Michael Bowling, Demis Hassabis, Karl Tuyls,
+*TacticAI: an AI assistant for football tactics*, Nature Communication
+[[pre-print](https://arxiv.org/abs/2310.10553)] [[paper](https://www.nature.com/articles/s41467-024-45965-x)]
+
+* Mark Rowland, Li K. Wenliang, Rémi Munos, Clare Lyle, Yunhao Tang, Will Dabney,
+*Near-Minimax-Optimal Distributional Reinforcement Learning with a Generative Model*, arXiv
+[[pre-print](https://arxiv.org/abs/2402.07598)]
+
+* Anian Ruoss, Grégoire Delétang, Sourabh Medapati, Jordi Grau-Moya, Li K. Wenliang, Elliot Catt, John Reid, Tim Genewein,
+*Grandmaster-level chess without search*, arXiv
+[[pre-print](https://arxiv.org/abs/2402.04494)] [[code](https://github.com/google-deepmind/searchless_chess)]
+
+* Jordi Grau-Moya, Tim Genewein, Marcus Hutter, Laurent Orseau, Grégoire Delétang, Elliot Catt, Anian Ruoss, Li K. Wenliang, Christopher Mattern, Matthew Aitchison, Joel Veness
+*Learning Universal Predictors*, ICML
+[[pre-print](https://arxiv.org/abs/2401.14953)] [[paper](https://openreview.net/forum?id=B1ajnQyZgK)]
+
+### 2023
+
+* Tianyuan Teng\*, Li K. Wenliang\*, Hang Zhang,
+*Bounded rationality in structured density estimation*, NeurIPS
+[[paper](https://proceedings.neurips.cc/paper_files/paper/2023/hash/4f82088872dc8a91085f426f90bdd7dc-Abstract-Conference.html)]
+
+
+* Elliot Catt, Jordi Grau-Moya, Marcus Hutter, Matthew Aitchison, Tim Genewein, Grégoire Delétang, Li K. Wenliang, Joel Veness,
+*Self-Predictive Universal AI*, NeurIPS
+[[paper](https://proceedings.neurips.cc/paper_files/paper/2023/hash/56a225639da77e8f7c0409f6d5ba996b-Abstract-Conference.html)]
+
+* Tim Genewein, Grégoire Delétang, Anian Ruoss, Li K. Wenliang, Elliot Catt, Vincent Dutordoir, Jordi Grau-Moya, Laurent Orseau, Marcus Hutter, Joel Veness,
+*Memory-based meta-learning on non-stationary distributions*, ICML
+[[paper](https://proceedings.mlr.press/v202/genewein23a.html)]
+
+* Grégoire Delétang, Anian Ruoss, Paul-Ambroise Duquenne, Elliot Catt, Tim Genewein, Christopher Mattern, Jordi Grau-Moya, Li K. Wenliang, Matthew Aitchison, Laurent Orseau, Marcus Hutter, Joel Veness,
+*Language modeling is compression*, ICLR
+[[paper](https://openreview.net/forum?id=jznbgiynus)] [[code](https://github.com/google-deepmind/language_modeling_is_compression)]
+
+
 ### 2022
 
-* Li K Wenliang,
+* Li K. Wenliang,
+*On the failure of variational score matching for VAE models* arXiv
+[[pre-print](https://arxiv.org/abs/2210.13390)]
+
+* Grégoire Delétang, Anian Ruoss, Jordi Grau-Moya, Tim Genewein, Li K. Wenliang, Elliot Catt, Chris Cundy, Marcus Hutter, Shane Legg, Joel Veness, Pedro A Ortega, 
+*Neural networks and the chomsky hierarchy*, ICLR
+[[pre-print](https://arxiv.org/abs/2207.02098)] [[paper](https://openreview.net/forum?id=WbxHAzkeQcn)] [[code](https://github.com/google-deepmind/neural_networks_chomsky_hierarchy)]
+
+* Jordi Grau-Moya, Grégoire Delétang, Markus Kunesch, Tim Genewein, Elliot Catt, Li K. Wenliang, Anian Ruoss, Chris Cundy, Joel Veness, Jane Wang, Marcus Hutter, Christopher Summerfield, Shane Legg, Pedro Ortega,
+*Beyond Bayes-optimality: meta-learning what you know you don't know*, arXiv
+[[pre-print](https://arxiv.org/abs/2209.15618)]
+
+* Li K. Wenliang, B Moran,
+*Score-based generative models learn manifold-like structures with constrained mixing*,  NeurIPS 2022 Workshop on Score-Based Methods
+[[pre-print](https://arxiv.org/abs/2311.09952)] [[paper](https://openreview.net/forum?id=eSZqaIrDLZR)]
+
+* Li K. Wenliang,
   *A distributional Bayesian learning theory for visual perceptual learning*, COSYNE Abstracts, Lisbon
 [[abstract]({{ "/pubs/weights_abstract.pdf" | absolute_url }})]
 
 ### 2021
 
-* Li K Wenliang, Heishiro Kanagawa,
+* Li K. Wenliang, Heishiro Kanagawa,
   *Blindness of score-based methods to isolated components and mixing proportions*, NeurIPS Workshop Your Model is Wrong
 [[paper](https://arxiv.org/abs/2008.10087)]
 
